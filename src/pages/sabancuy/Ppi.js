@@ -3,7 +3,7 @@ import React from 'react'
 const Ppi = () => {
    return (
       <div>
-         Catedral_PPI
+         Sabancuy PPI
       </div>
    )
 }

@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Ppi = () => {
+const Ppi_gif = () => {
    return (
       <div>
-         Catedral_PPI
+         Cabos ppi_gif
       </div>
    )
 }
 
-export default Ppi
+export default Ppi_gif

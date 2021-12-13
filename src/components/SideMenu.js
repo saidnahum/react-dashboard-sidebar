@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import Logo from '../assets/logo/webscript.png';
+import Logo from '../assets/logo/logoCna.png';
 import { BsFillArrowLeftSquareFill as LeftArrow, BsFillArrowRightSquareFill as RightArrow} from 'react-icons/bs';
 import MenuItem  from './MenuItem'
 import menu from './Menu';
+import { Link, NavLink } from 'react-router-dom';
+import { AiOutlineHome } from 'react-icons/ai';
 
 const SideMenu = ({ inactive, setInactive }) => {
 
@@ -20,9 +22,9 @@ const SideMenu = ({ inactive, setInactive }) => {
 
    return (
       <div className={`${!dark ? 'dark' : ''}`}>
-         <div className={`fixed bg-black w-80 h-full py-8 px-5 transition-all duration-500 ${inactive ? 'w-20' : ''}`}>
+         <div className={`fixed bg-[#13322B] w-56 h-full py-8 px-5 transition-all duration-500 overflow-y-auto ${inactive ? 'w-20' : ''}`}>
             {/* Top Section */}
-            <div className={`flex items-center justify-between ${inactive && 'flex-col'}`}>
+            <div className={`flex items-center justify-between mb-5 ${inactive && 'flex-col'}`}>
                <div className={`w-10 h-10 overflow-hidden ${inactive && 'mb-5'}`}>
                   <img
                      src={Logo}
@@ -30,34 +32,30 @@ const SideMenu = ({ inactive, setInactive }) => {
                      className='max-w-full max-h-full'
                   />
                </div>
+
+               <span className={`text-white w-full ml-3 ${inactive && 'hidden'}`}>Red de Radares</span>
+
                <div onClick={Inactive}>
                   {
                      inactive 
-                        ? (<RightArrow className='text-[#333] text-xl' />)
-                        : (<LeftArrow className='text-[#333] text-xl' />)
+                        ? (<RightArrow className='text-gray-500 text-xl' />)
+                        : (<LeftArrow className='text-gray-500 text-xl' />)
                   }
                </div>
+               
             </div>
-
-            {/* Search Section */}
-            <div className="relative text-gray-600 focus-within:text-gray-400 my-5">
-               <span className={`absolute inset-y-0 left-0 flex items-center pl-2 ${inactive && 'pl-1'}`}>
-                  <button type="submit" className="p-1 focus:outline-none focus:shadow-outline">
-                     <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" className="w-6 h-6"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                  </button>
-               </span>
-               <input 
-                  className="py-2 text-sm text-white bg-[#333] rounded-md pl-10 focus:outline-none focus:bg-white focus:text-gray-900 block w-full" 
-                  placeholder="Search..." 
-                  autoComplete="off"
-               />
-            </div>
+            
 
             {/* Divider */}
             <div className='w-full h-px rounded-sm bg-[#333]'></div>
-
+            
+            {/* Links Section */}
             <div className='text-gray-500 mt-5'>
                <ul className='space-y-5'>
+                  <div className='flex items-center cursor-pointer text-gray-300'>
+                     <AiOutlineHome className='mr-3 text-2xl'/>
+                     <NavLink exact to="/" className={`text-md ${inactive && 'hidden'}`}  activeClassName="text-red-300">Inicio</NavLink>
+                  </div>
                   {
                      menuItems.map((menuItem, index) => (
                         <MenuItem

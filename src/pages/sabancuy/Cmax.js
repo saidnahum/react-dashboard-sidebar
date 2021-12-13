@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Ppi = () => {
+const Cmax = () => {
    return (
       <div>
-         Catedral_PPI
+         Sabancuy Cmax
       </div>
    )
 }
 
-export default Ppi
+export default Cmax
